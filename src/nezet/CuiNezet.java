@@ -5,17 +5,17 @@ import java.util.Scanner;
 
 
 public class CuiNezet {
-    private static final String Sep=System.lineSeparator();
-    private static final Scanner scr=new Scanner(System.in);
+    private static final String Sep = System.lineSeparator();
+    private static final Scanner scr = new Scanner(System.in);
     
     private void konzolraIr(String msg){
         System.out.println(msg);
     }
     public void leirasMegjelenit(String msg){
-        konzolraIr(msg+Sep);
+        konzolraIr(msg + Sep);
     }
     public void feladatMegjelenito(String msg){
-        konzolraIr(msg+ Sep);
+        konzolraIr(msg + Sep);
     }
     public int valasztas(String msg){
         konzolraIr(msg);
