@@ -1,36 +1,34 @@
-
 package main;
 
-import model.newpackage.Lada;
+import modell.Lada;
 import nezet.CuiNezet;
-
 
 public class LogikaiProgram {
 
-
     public static void main(String[] args) {
-        run();
-    }
-
-    private static void run() {
-       Lada lad1 = new Lada("arany: ","én rejtem");
-       Lada lad2 = new Lada("ezüst: ","nem én rejtem", true);
-       Lada lad3 = new Lada("bronz: ","az arany hazudik");
-       CuiNezet cui = new CuiNezet();
-       cui.feladatMegjelenito("Csak 1 igaz!");
-       cui.leirasMegjelenit(lad1.getAnyag()+lad1.getFelirat());
-       cui.leirasMegjelenit(lad2.getAnyag()+lad2.getFelirat());
-       cui.leirasMegjelenit(lad3.getAnyag()+lad3.getFelirat());
-       int elso = cui.valasztas("melyik (0..2):0");
-       if (elso == 0){
-           cui.valaszatott("nem talált, a kincset nem az aranya rejti");
-       }
-       else if (elso == 1){
-           cui.valaszatott("talált, a kincset ezüst rejtette rejti");
-       }
-       else {
-           cui.valaszatott("nem talált, a kincset nem az bronz rejti");
-       }
+        CuiNezet nezet = new CuiNezet();
+        
+        nezet.leirasMegjelenito("Csak 1 igaz!");
+        
+        Lada arany = new Lada("arany", "én rejtem");
+        Lada ezust = new Lada("ezüst", "nem én rejtem", true);
+        Lada bronz = new Lada("bronz", "az arany hazudik");
+        Lada[] ladak = {arany, ezust, bronz};
+        for (Lada lada : ladak) {
+            String anyag = lada.getAnyag() + ": ";
+            String felirat = lada.getFelirat();
+            nezet.feladatMegjelenito(anyag + felirat);
+        }
+        
+        int valasztas = nezet.valasztas("melyik (0..2): ");
+        Lada lada = ladak[valasztas];
+        String str = "";
+        if(lada.isKincs()){
+            str = "talált, a kincset a(z) ";
+        }else{
+            str = "nem talált, a kincset nem a(z) ";
+        }
+        nezet.eredmenyMegjelenito(str + lada.getAnyag() + " rejti ");
     }
     
 }

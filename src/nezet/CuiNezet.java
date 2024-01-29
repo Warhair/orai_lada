@@ -1,27 +1,29 @@
-
 package nezet;
 
 import java.util.Scanner;
 
-
 public class CuiNezet {
-    private static final String Sep = System.lineSeparator();
-    private static final Scanner scr = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
+    private static final String SEP = System.lineSeparator();
     
     private void konzolraIr(String msg){
-        System.out.println(msg);
+        System.out.print(msg);
     }
-    public void leirasMegjelenit(String msg){
-        konzolraIr(msg + Sep);
+    
+    public void leirasMegjelenito(String msg){
+        konzolraIr(msg + SEP);
     }
+    
     public void feladatMegjelenito(String msg){
-        konzolraIr(msg + Sep);
+        konzolraIr(msg + SEP);
     }
+    
     public int valasztas(String msg){
         konzolraIr(msg);
-        return scr.nextInt();
+        return sc.nextInt();
     }
-    public void valaszatott(String msg){
-        konzolraIr(msg);
+    
+    public void eredmenyMegjelenito(String msg){
+        konzolraIr(msg + SEP);
     }
 }
